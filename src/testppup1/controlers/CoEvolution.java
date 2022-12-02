@@ -83,7 +83,7 @@ public class CoEvolution {
 
 			//out = true;
 			if(!usage.getPatterns().isEmpty()) {
-				System.out.println(" full usage ");
+				System.out.println(" Pattern not empty ");
 				usages.add(usage);
 			}
 			else
