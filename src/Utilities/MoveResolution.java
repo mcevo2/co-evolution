@@ -36,8 +36,8 @@ import org.eclipse.jdt.core.dom.rewrite.ListRewrite;
 import org.eclipse.jface.text.Document;
 import org.eclipse.text.edits.TextEdit;
 
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteProperty;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.MoveProperty;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteProperty;
+import coevolution.ComplexChangeDetection.ComplexChanges.MoveProperty;
 
 public class MoveResolution {//can treat extract class too
 

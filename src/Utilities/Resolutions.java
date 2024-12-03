@@ -58,14 +58,14 @@ import org.eclipse.jface.text.Document;
 import org.eclipse.text.edits.MalformedTreeException;
 import org.eclipse.text.edits.TextEdit;
 
-import fr.lip6.meta.ComplexChangeDetection.Change;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteClass;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteProperty;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.RenameClass;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.RenameProperty;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.SetProperty;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.MoveProperty;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.PushProperty;
+import coevolution.ComplexChangeDetection.Change;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteClass;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteProperty;
+import coevolution.ComplexChangeDetection.AtomicChanges.RenameClass;
+import coevolution.ComplexChangeDetection.AtomicChanges.RenameProperty;
+import coevolution.ComplexChangeDetection.AtomicChanges.SetProperty;
+import coevolution.ComplexChangeDetection.ComplexChanges.MoveProperty;
+import coevolution.ComplexChangeDetection.ComplexChanges.PushProperty;
 
 public class Resolutions {
 	public static void renamingClassResolution( CompilationUnit cu,Usage usage,UsagePattern pattern, String newName)
@@ -749,18 +749,16 @@ public class Resolutions {
 
 		MethodDeclaration md =(MethodDeclaration) ASTManager.findMethodDeclaration(node);
 		String mdname=	md.getName().getIdentifier();
-		System.out.println(" the MD IS "+mdname + "change type string is "+ ((DeleteClass)change).getName());
-		if( mdname.contains(((DeleteClass)change).getName()))
+			if( mdname.contains(((DeleteClass)change).getName()))
 		{
 			try {
-				System.out.println("In return type resolution    added code ");
-
+				
 				document = new Document(iCompilUnit.getSource());
 				rewriter1.remove(md, null);  
 				edits = rewriter1.rewriteAST(document, null);	
 				SaveModification.SaveModif(cu, edits);
 			} catch (JavaModelException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 

@@ -12,7 +12,7 @@
             id="testppup1.views.SampleView"
             name="Sample View"
             icon="icons/sample.png"
-            class="testppup1.views.SampleView"
+            class="coevolution.views.SampleView"
             category="testppup1"
             inject="true">
       </view>
@@ -38,7 +38,7 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="testppup1.views.SampleView"
+            defaultHandler="coevolution.views.SampleView"
             id="getErrors"
             name="Get list of errors">
       </command>

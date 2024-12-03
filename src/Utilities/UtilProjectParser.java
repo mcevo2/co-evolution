@@ -38,6 +38,26 @@ public class UtilProjectParser {
 	    }
 	    return path;
 	}
+	public static ICompilationUnit getSelectedCU()
+	{
+		 IProject project=null;
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+	    if (window != null)
+	    {
+	        IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+	        Object firstElement = selection.getFirstElement();
+	        if (firstElement instanceof ICompilationUnit)
+	        {
+	        	
+	            return (ICompilationUnit)firstElement;
+	            
+	        }
+	    }
+	    return null;
+		
+	}
+	
+
 	public static IProject getSelectedProject()
 	{
 		 IProject project=null;
@@ -78,20 +98,15 @@ public static ArrayList<ICompilationUnit> getCompilationUnits(IProject project) 
 			if (project.hasNature(JavaCore.NATURE_ID)) {
 			    IJavaProject javaProject =getJavaProject(project);
 			    javaProject.open(null);
-			    //javaProject.getResource().refreshLocal(IResource.DEPTH_INFINITE, null);
-			    
+			   
 			    for(IPackageFragment packageFrag : javaProject.getPackageFragments()){
 			    	
 			    	if(packageFrag.getPath().getFileExtension() == null){
-			    		//System.out.println("package fragment >> "+packageFrag);
 			    		
 			    		for(IJavaElement javaEle : packageFrag.getChildren()){
-			    			//System.out.println("comp unit"+ javaEle.getClass());
-			    			if(javaEle instanceof ICompilationUnit){//alternativley check if the element kind is == 5, it is CompilationUnit
+			    				if(javaEle instanceof ICompilationUnit){//alternativley check if the element kind is == 5, it is CompilationUnit
 			    				ICompilationUnit compilUnit = (ICompilationUnit) javaEle;
-			    				//Next instruction is another way to get ICompilationUnit
-			    		//	ICompilationUnit compilUnit= JavaCore.createCompilationUnitFrom((IFile)javaEle.getCorrespondingResource());
-
+			    				
 			    				if (compilUnit != null) {
 			    					
 			    					units.add(compilUnit);

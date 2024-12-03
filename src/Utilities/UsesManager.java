@@ -28,17 +28,17 @@ import org.eclipse.jdt.internal.compiler.lookup.VariableBinding;
 import org.eclipse.jdt.internal.ui.text.TypingRun.ChangeType;
 import org.eclipse.jface.text.Document;
 
-import fr.lip6.meta.ComplexChangeDetection.Change;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.ChangeUpperBound;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteClass;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteProperty;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.RenameClass;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.RenameProperty;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.SetProperty;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.ComplexChange;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.ExtractClass;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.MoveProperty;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.PushProperty;
+import coevolution.ComplexChangeDetection.Change;
+import coevolution.ComplexChangeDetection.AtomicChanges.ChangeUpperBound;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteClass;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteProperty;
+import coevolution.ComplexChangeDetection.AtomicChanges.RenameClass;
+import coevolution.ComplexChangeDetection.AtomicChanges.RenameProperty;
+import coevolution.ComplexChangeDetection.AtomicChanges.SetProperty;
+import coevolution.ComplexChangeDetection.ComplexChanges.ComplexChange;
+import coevolution.ComplexChangeDetection.ComplexChanges.ExtractClass;
+import coevolution.ComplexChangeDetection.ComplexChanges.MoveProperty;
+import coevolution.ComplexChangeDetection.ComplexChanges.PushProperty;
 
 
 
@@ -50,11 +50,11 @@ public class UsesManager {
 		usage.setNode(errornode);
 		usage.setError(error); 
 
-		System.out.println(" THe ERROR NODE "+ errornode +" type of class  "+errornode.getClass());
+		//System.out.println(" THe ERROR NODE "+ errornode +" type of class  "+errornode.getClass());
 		for(Change change : myChanges) {
-			System.out.println(" change en cours is "+ change);
+			//System.out.println(" change en cours is "+ change);
 			if(errornode instanceof SimpleName) {
-				System.out.println(" in simplename ");
+				//System.out.println(" in simplename ");
 				if (change instanceof RenameClass)
 				{
 					if(((SimpleName)errornode).getIdentifier().equals(((RenameClass)change).getName()))
@@ -429,9 +429,7 @@ public class UsesManager {
 							if( cc instanceof MoveProperty) {
 								MoveProperty mp= (MoveProperty)cc;
 
-								System.out.println(" inEXTRACT9999  "+((SimpleName)errornode).getIdentifier()+ "  22222  "+(mp.getSourceClassName().toUpperCase()+"__"+ASTManager.makeLiteral(mp.getName())));
 								if((((SimpleName)errornode).getIdentifier()).equals((mp.getSourceClassName().toUpperCase()+"__"+ASTManager.makeLiteral(mp.getName())))) {
-									System.out.println(" in same move prop");
 									
 										usage.getPatterns().add((UsagePattern.LiteralRename));
 										usage.setChange(mp);

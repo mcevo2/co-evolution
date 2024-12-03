@@ -30,8 +30,8 @@ import org.eclipse.jdt.core.dom.rewrite.ASTRewrite;
 import org.eclipse.jface.text.Document;
 import org.eclipse.text.edits.TextEdit;
 
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteClass;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteProperty;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteClass;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteProperty;
 
 public class DeletePropertyResolution {
 

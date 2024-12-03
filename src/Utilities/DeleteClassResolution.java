@@ -19,7 +19,7 @@ import org.eclipse.jdt.core.dom.SingleVariableDeclaration;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteClass;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteClass;
 
 
 public class DeleteClassResolution {

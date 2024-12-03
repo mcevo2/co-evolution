@@ -2,30 +2,30 @@ package Utilities;
 
 import java.util.ArrayList;
 
-import fr.lip6.meta.ComplexChangeDetection.Change;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.AddClass;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.AddProperty;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.AddSuperType;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.ChangeLowerBound;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.ChangeUpperBound;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteClass;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteProperty;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.DeleteSuperType;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.RenameClass;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.RenameProperty;
-import fr.lip6.meta.ComplexChangeDetection.AtomicChanges.SetProperty;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.ComplexChange;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.ExtractClass;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.ExtractSuperClass;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.MoveProperty;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.PullProperty;
-import fr.lip6.meta.ComplexChangeDetection.ComplexChanges.PushProperty;
+import coevolution.ComplexChangeDetection.Change;
+import coevolution.ComplexChangeDetection.AtomicChanges.AddClass;
+import coevolution.ComplexChangeDetection.AtomicChanges.AddProperty;
+import coevolution.ComplexChangeDetection.AtomicChanges.AddSuperType;
+import coevolution.ComplexChangeDetection.AtomicChanges.ChangeLowerBound;
+import coevolution.ComplexChangeDetection.AtomicChanges.ChangeUpperBound;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteClass;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteProperty;
+import coevolution.ComplexChangeDetection.AtomicChanges.DeleteSuperType;
+import coevolution.ComplexChangeDetection.AtomicChanges.RenameClass;
+import coevolution.ComplexChangeDetection.AtomicChanges.RenameProperty;
+import coevolution.ComplexChangeDetection.AtomicChanges.SetProperty;
+import coevolution.ComplexChangeDetection.ComplexChanges.ComplexChange;
+import coevolution.ComplexChangeDetection.ComplexChanges.ExtractClass;
+import coevolution.ComplexChangeDetection.ComplexChanges.ExtractSuperClass;
+import coevolution.ComplexChangeDetection.ComplexChanges.MoveProperty;
+import coevolution.ComplexChangeDetection.ComplexChanges.PullProperty;
+import coevolution.ComplexChangeDetection.ComplexChanges.PushProperty;
 
 public class ChangeDetection {
 	public static ArrayList<Change> initializeChangements()
 	{
 		ArrayList<Change> changes = new ArrayList<Change>();
-		ArrayList<String> subclasses1 = new ArrayList<String>();
+	/*	ArrayList<String> subclasses1 = new ArrayList<String>();
 		subclasses1.add("NamedElement");
 		
 		PullProperty pp1 = new PullProperty("ownedAnnotation", "Element", subclasses1);
@@ -479,7 +479,7 @@ public class ChangeDetection {
 		changes.add(ast30);
 		changes.add(ast31);
 		changes.add(ast32);
-
+*/
 		//RenameClass renameClass3 = new RenameClass("Person","Contact","???"); 
 		//RenameClass renameClass1 = new RenameClass("Loc","Address","???"); 
 		//RenameProperty renameProperty1 = new RenameProperty("lower","lowertoto","CollectionType"); 
@@ -615,7 +615,7 @@ public class ChangeDetection {
 		
 	//	changes.add(setProperty2);
 		
-	/*	RenameProperty rp1 = new RenameProperty("discoveryError", "discoveryErrors", "Discovery");		
+		RenameProperty rp1 = new RenameProperty("discoveryError", "discoveryErrors", "Discovery");		
 		RenameProperty rp2 = new RenameProperty("dicoveryDate", "discoveryDate", "Discovery");
 		RenameProperty rp3 = new RenameProperty("totalExecutionTimeInSeconds", "discoveryTimeInSeconds", "Discovery");
 		RenameProperty rp4 = new RenameProperty("averageSaveTimeInSeconds", "saveTimeAverageInSeconds", "AveragedProjectDiscovery");
@@ -631,14 +631,19 @@ public class ChangeDetection {
 		
 		MoveProperty mp1 = new MoveProperty("discoveryDate", "Discovery", "DiscoveryIteration");//after its rename
 		mp1.setThroughReference("iterations");
+		mp1.setUpperBound(-1);
 		MoveProperty mp2 = new MoveProperty("maxUsedMemoryInBytes", "Discovery", "DiscoveryIteration");
 		mp2.setThroughReference("iterations");
+		mp2.setUpperBound(-1);
 		MoveProperty mp3 = new MoveProperty("saveTimeInSeconds", "Discovery", "DiscoveryIteration");
 		mp3.setThroughReference("iterations");
+		mp3.setUpperBound(-1);
 		MoveProperty mp4 = new MoveProperty("discoveryErrors", "Discovery", "DiscoveryIteration");//after its rename
 		mp4.setThroughReference("iterations");
+		mp4.setUpperBound(-1);
 		MoveProperty mp5 = new MoveProperty("discoveryTimeInSeconds", "Discovery", "DiscoveryIteration");//after its rename
 		mp5.setThroughReference("iterations");
+		mp5.setUpperBound(-1);
 		moves.add(mp1);
 		moves.add(mp2);
 		moves.add(mp3);
@@ -783,7 +788,7 @@ public class ChangeDetection {
 		changes.add(ap10);
 		changes.add(ap11);
 
-		*/
+		
 		
 		return changes;
 	}

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.jdt.core.dom.ASTNode;
 
-import fr.lip6.meta.ComplexChangeDetection.Change;
+import coevolution.ComplexChangeDetection.Change;
 
 public class Usage {
 	ArrayList<UsagePattern>  patterns=new ArrayList<UsagePattern>() ;
